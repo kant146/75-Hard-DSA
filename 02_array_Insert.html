@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array Traversing</title>
+  <script>
+    let data = [11,22,33,44,55,66,77,88,99]
+    document.write(`<h2>Data ${data}</h2>`)
+
+    // let newEl = document.getElementById("element").value;
+    // let position = 2;
+    
+    // for(let i=data.length-1; i>=0; i--){
+    //   if(i>=position){
+    //     data[i+1]=data[i]
+    //     if(i==position){
+    //       data[i]=newEl;
+    //     }
+    //   }
+    // }
+    // console.warn(data)
+
+    // document.write(`<h2>New Data ${data}</h2>`)
+
+
+
+    function insertElement(){
+      let data = [11,22,33,44,55,66,77,88,99]
+      console.warn(data)
+      let newEl = document.getElementById('newEl').value;
+          newEl = parseInt(newEl)
+      let position = document.getElementById('position').value;
+          
+         if(position>=0 && position<data.length-1  && typeof parseInt(position) === "number"){
+           for(let i=data.length-1; i>=0; i--){
+            if(i>=position ){
+              data[i+1]=data[i];
+              if(i==position ){
+                data[i]=newEl;
+              }
+            }
+          }
+          document.getElementById("answer").innerHTML=`New Data is ${data}`
+          document.getElementById("answer").style.color="skyblue";
+        
+        }
+        else{
+                document.getElementById("answer").innerHTML=`Please Enter Valid Element or Number`
+                document.getElementById("answer").style.color="red";
+              }
+  
+          }
+   
+  </script>
+</head>
+<style>
+h4{
+  color: red;
+}
+
+</style>
+<body>
+ <div>
+  <input type="text" id="position" placeholder="Enter Position" />
+  <input type="text" id="newEl" placeholder="Enter New Element" />
+  <button onClick={insertElement()}>Insert</button>
+  <br></br>
+  <Text id="answer"></Text>
+  <br></br>
+  <h4 >Also use Data.Splice(2,0,2024)</h4>
+ </div>
+</body>
+</html>
