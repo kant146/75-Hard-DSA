@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array Delete</title>
+  <script>
+    let data = [11,22,33,44,55,66,77,88,99]
+    document.write(`<h2>Data ${data}</h2>`)
+
+    // let position = 3;
+
+    // for(let i=position; i<data.length-1; i++){
+    //   data[i]=data[i+1]
+    //   console.log(data[i])
+    // }
+    // data.length=data.length-1
+    // console.log(data)
+
+
+    function removeEl(){
+      let data = [11,22,33,44,55,66,77,88,99]
+     
+      let position = document.getElementById('position').value;
+        position = parseInt(position);
+      for(let i=position; i<data.length-1; i++){
+        data[i]=data[i+1]
+        // console.log(data[i])
+      }
+    data.length=data.length-1
+    console.log(data)
+    document.getElementById("answer").innerHTML=`New Data is ${data}`
+          document.getElementById("answer").style.color="skyblue";
+    }
+
+    
+   
+  </script>
+</head>
+<style>
+h4{
+  color: red;
+}
+
+</style>
+<body>
+ <div>
+  <input type="text" id="position" placeholder="Enter Position" />
+  <button onClick={removeEl()}>Remove Element</button>
+  <br></br>
+  <Text id="answer"></Text>
+  <br></br>
+  <h4 >Also use Data.Splice(2,0,2024)</h4>
+ </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array Searching</title>
+  <script>
+    let data = [11,22,33,44,55,66,77,88,99]
+    document.write(`<h2>Data ${data}</h2>`)
+
+    // let item =55;
+    // let index = undefined;
+    
+    // for(let i=0; i<=data.length-1; i++){
+    //   if(data[i]==item){
+    //    index=i;
+    //    break;
+    //   }
+    // }
+    // console.log(index);
+    // console.log(data.indexOf(item))
+    // console.log(data.splice(2,1))
+    
+
+
+
+    function searchEl(){
+      let data = [11,22,33,44,55,66,77,88,99]
+      console.warn(data)
+      let item = document.getElementById('item').value;
+          let index = undefined;
+          
+         
+          for(let i=0; i<=data.length-1; i++){
+            if(data[i]===parseInt(item)){
+            index=i;
+            break;
+            }
+          }
+          document.getElementById("answer").innerHTML=`${index}`
+          document.getElementById("answer").style.color="skyblue";
+        
+        }
+        
+
+          
+   
+  </script>
+</head>
+<style>
+h4{
+  color: red;
+}
+
+</style>
+<body>
+ <div>
+  <input type="text" id="item" placeholder="Search Item" />
+  <button onClick={searchEl()}>Search</button>
+  <br></br>
+ <p>Result</p> <Text id="answer"></Text>
+  <br></br>
+  <h4 >Also use data.indexOf(item)</h4>
+  <h4 >Also use data.splice(2,1)</h4>
+ </div>
+</body>
+</html>
