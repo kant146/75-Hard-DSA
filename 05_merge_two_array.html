@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Merge Two Array</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+  <style>
+    body {
+         font-family: Arial, sans-serif;
+         background-color: #f3f3f3;
+         margin: 0;
+         padding: 0;
+       }
+       .container {
+         max-width: 600px;
+         margin: 50px auto;
+         padding: 20px;
+         background-color: #fff;
+         border-radius: 8px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       }
+       h1 {
+         text-align: center;
+         color: #333;
+       }
+       h2 {
+         text-align: center;
+         color: #930000;
+       }
+       label {
+         font-weight: bold;
+         margin-bottom: 10px;
+         display: block;
+       }
+       input[type="text"] {
+         width: calc(100% - 20px);
+         padding: 10px;
+         margin-bottom: 20px;
+         border: 1px solid #ccc;
+         border-radius: 4px;
+       }
+       button {
+         background-color: #4caf50;
+         color: #fff;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+       }
+       button:hover {
+         background-color: #45a049;
+       }
+       #answer {
+         font-size: 18px;
+         color: #333;
+         margin-top: 20px;
+       }
+       pre {
+         background-color: #f7f7f7;
+         padding: 20px;
+         border-radius: 4px;
+         overflow-x: auto;
+       }
+   
+   </style>
+  <script>
+    let data1 = [11,22,33,44,55]
+    let data2 = [66,77,88,99,111]
+    
+    document.write(`<h2>Data1 ${data1}</h2>`)
+    document.write(`<h2>Data2 ${data2}</h2>`)
+
+    let data =[];
+
+    // for(let i=0; i<data1.length; i++){
+    //   data[i]=data1[i];
+    // }
+
+    // for(let i=0; i<data2.length; i++){
+    //   data[data.length+i]=data2[i];
+    // }
+
+    // console.warn(data)
+   
+
+
+    function mergeTwoArray(){
+      for(let i=0; i<data1.length; i++){
+      data[i]=data1[i];
+    }
+
+    for(let i=0; i<data2.length; i++){
+      data[data1.length+i]=data2[i];
+    }
+          document.getElementById("answer").innerHTML=`${data}`
+          document.getElementById("answer").style.color="skyblue";
+        
+        }
+        
+
+          
+   
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Merge Two in Array</h1>
+    <button onclick="mergeTwoArray()">Merge</button>
+    <p>Result</p>
+    <div id="answer"></div>
+    <h4 >Also use " let data = [...data1,...data2] "</h4>
+    <h3>Code</h3>
+    <pre><code class="language-javascript">
+      let data1 = [11,22,33,44,55]
+      let data2 = [66,77,88,99]
+      
+      document.write(`&lt;h2&gt;Data1 ${data1}&lt;/h2&gt;`)
+      document.write(`&lt;h2&gt;Data2 ${data2}&lt;/h2&gt;`)
+
+      let data =[];
+
+      for(let i=0; i&lt;data1.length; i++){
+        data[i]=data1[i];
+      }
+
+      for(let i=0; i&lt;data2.length; i++){
+        data[data.length+i]=data2[i];
+      }
+
+      console.log(data)
+    </code></pre>
+  </div>
+  
+ 
+
+</body>
+</html>
