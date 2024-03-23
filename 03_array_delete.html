@@ -6,63 +6,65 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
   <style>
     body {
-         font-family: Arial, sans-serif;
-         background-color: #f3f3f3;
-         margin: 0;
-         padding: 0;
-       }
-       .container {
-         max-width: 600px;
-         margin: 50px auto;
-         padding: 20px;
-         background-color: #fff;
-         border-radius: 8px;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-       }
-       h1 {
-         text-align: center;
-         color: #333;
-       }
-       h2 {
-         text-align: center;
-         color: #930000;
-       }
-       label {
-         font-weight: bold;
-         margin-bottom: 10px;
-         display: block;
-       }
-       input[type="text"] {
-         width: calc(100% - 20px);
-         padding: 10px;
-         margin-bottom: 20px;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-       }
-       button {
-         background-color: #4caf50;
-         color: #fff;
-         padding: 10px 20px;
-         border: none;
-         border-radius: 4px;
-         cursor: pointer;
-       }
-       button:hover {
-         background-color: #45a049;
-       }
-       #answer {
-         font-size: 18px;
-         color: #333;
-         margin-top: 20px;
-       }
-       pre {
-         background-color: #f7f7f7;
-         padding: 20px;
-         border-radius: 4px;
-         overflow-x: auto;
-       }
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #930000;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+    input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button, #copybtn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    button:hover , #copybtn:hover {
+      background-color: rgb(46, 55, 47);
+    }
+    #answer {
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+    }
+    pre {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
    
-   </style>
+
+  </style>
   <script>
     let data = [11,22,33,44,55,66,77,88,99]
     document.write(`<h2>Data ${data}</h2>`)
@@ -92,39 +94,36 @@
           document.getElementById("answer").style.color="skyblue";
     }
 
+    function copyCode() {
+      const codeElement = document.querySelector("pre code");
+      const code = codeElement.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        // alert("Code copied to clipboard!");
+        document.getElementById("copybtn").value="Copied"
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
     
    
   </script>
 </head>
-<style>
-h4{
-  color: red;
-}
 
-</style>
 <body>
- <!-- <div>
-  <input type="text" id="position" placeholder="Enter Position" />
-  <button onClick={removeEl()}>Remove Element</button>
-  <br></br>
-  <Text id="answer"></Text>
-  <br></br>
-  <h4 >Also use Data.Splice(2,0,2024)</h4>
- </div> -->
 
  <div class="container">
   <h1>Search Item in Array</h1>
   <label for="item">Enter the Item to Search:</label>
   <input type="text" id="position" placeholder="Enter Position" />
   <button onClick={removeEl()}>Remove Element</button>
+  <input  type="button" id="copybtn" onclick="copyCode()" value="Copy Code" />
   <p>Result</p>
   <div id="answer"></div>
-  <h4 >Also use Data.Splice(2,0,2024)</h4>
+  <h4 >Also use Data.Splice(2,0,99)</h4>
+  <h5>To Visualize: Copy code and test <a href="https://pythontutor.com/javascript.html#mode=edit" target="_black">Click Here</a></h5>
   <h3>Code</h3>
   <pre><code class="language-javascript">
     let data = [11,22,33,44,55,66,77,88,99]
-    document.write(`&lt;h2&gt;Data ${data}&lt;/h2&gt;`)
-
     let position = 3;
 
     for(let i=position; i&lt;data.length-1; i++){
