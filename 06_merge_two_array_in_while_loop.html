@@ -85,6 +85,13 @@
       //   }
       //   d++;
       // }
+
+      // while(d1<data1.length){
+      //   data[d]=data1[d1]
+      //   d1++;
+      //   d++;
+      // }
+
       // console.log(data)
 
 
@@ -139,23 +146,34 @@
     <input  type="button" id="copybtn" onclick="copyCode()" value="Copy Code" />
     <p>Result</p>
     <div id="answer"></div>
-    <h4>Also use "let data = [...data1, ...data2]"</h4>
     <h5>To Visualize: Copy code and test <a href="https://pythontutor.com/javascript.html#mode=edit" target="_black">Click Here</a></h5>
     <h3>Code</h3>
     <pre><code class="language-javascript">
-      let data1 = [11,22,33,44,55]
-      let data2 = [66,77,88,99]
+      let data1 = [11,99,33,44,55,888];
+      let data2 = [6,66,22,77,88,99];
+      let data = [];
+      let d1=0;
+      let d2=0;
+      let d=0;
+
+      while(d1&lt;data1.length && d2&lt;data2.length){
+        if(data1[d1]&lt;data2[d2])
+        {
+          data[d]=data1[d1];
+          d1++;
+        }else{
+          data[d]=data2[d2];
+          d2++;
+        }
+        d++;
+      }
+
+      while(d1&lt;data1.length){
+        data[d]=data1[d1]
+        d1++;
+        d++;
+      }
       
-      let data =[];
-
-      for(let i=0; i&lt;data1.length; i++){
-        data[i]=data1[i];
-      }
-
-      for(let i=0; i&lt;data2.length; i++){
-        data[data1.length+i]=data2[i];
-      }
-
       console.log(data)
     </code></pre>
   </div>
