@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Merge Two Array</title>
+  <title>Merge Two Array in While Loop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
   <style>
@@ -66,19 +66,54 @@
 
   </style>
   <script>
+
+      // let data1 = [11,99,33,44,55];
+      // let data2 = [66,22,77,88];
+      // let data = [];
+      // let d1=0;
+      // let d2=0;
+      // let d=0;
+
+      // while(d1<data1.length && d2<data2.length){
+      //   if(data1[d1]<data2[d2])
+      //   {
+      //     data[d]=data1[d1];
+      //     d1++;
+      //   }else{
+      //     data[d]=data2[d2];
+      //     d2++;
+      //   }
+      //   d++;
+      // }
+      // console.log(data)
+
+
     function mergeTwoArray() {
-      let data1 = [11, 22, 33, 44, 55];
-      let data2 = [66, 77, 88, 99];
+      let data1 = [11,22,33,44,55,888];
+      let data2 = [6,66,77,88,99];
       let data = [];
+      let d1=0;
+      let d2=0;
+      let d=0;
 
-      for(let i=0; i<data1.length; i++){
-        data[i]=data1[i];
+      while(d1<data1.length && d2<data2.length){
+        if(data1[d1]<data2[d2])
+        {
+          data[d]=data1[d1];
+          d1++;
+        }else{
+          data[d]=data2[d2];
+          d2++;
+        }
+        d++;
       }
-      for(let i=0; i<data2.length; i++){
-        data[data1.length+i]=data2[i];
+
+      while(d1<data1.length){
+        data[d]=data1[d1]
+        d1++;
+        d++;
       }
-
-
+      console.log(data)
 
       document.getElementById("answer").innerHTML = `${data}`;
       document.getElementById("answer").style.color = "skyblue";
@@ -99,7 +134,7 @@
 
 <body>
   <div class="container">
-    <h1>Merge Two Arrays</h1>
+    <h1>Merge Two Array in While Loop</h1>
     <button onclick="mergeTwoArray()">Merge</button>
     <input  type="button" id="copybtn" onclick="copyCode()" value="Copy Code" />
     <p>Result</p>
