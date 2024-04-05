@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Array Sort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #930000;
+    }
+    label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+    input[type="text"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button, #copybtn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    button:hover , #copybtn:hover {
+      background-color: rgb(46, 55, 47);
+    }
+    #answer {
+      font-size: 18px;
+      color: #333;
+      margin-top: 20px;
+    }
+    pre {
+      background-color: #f7f7f7;
+      padding: 20px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+   
+
+  </style>
+  <script>
+
+      // let data = [40,30,12,25,54,96,5,8,1];
+     
+      //   for(let i=0; i<data.length;i++){
+      //     for(let j=0;j<data.length;j++){
+      //       console.log(data)
+
+      //       if(data[j]>data[j+1]){
+      //         let temp=data[j];
+      //         data[j]=data[j+1];
+      //         data[j+1]=temp;
+      //       }
+      //     }
+      //   }
+     
+
+      // console.log(data)
+
+
+    function arraySort() {
+      let data = [40,30,12,25,54,96,5,8,1];
+
+      for(let i=0; i<data.length;i++){
+          for(let j=0;j<data.length;j++){
+            console.log(data)
+
+            if(data[j]>data[j+1]){
+              let temp=data[j];
+              data[j]=data[j+1];
+              data[j+1]=temp;
+            }
+          }
+        }
+      // console.log(data)
+
+      document.getElementById("answer").innerText = `${data}`;
+      document.getElementById("answer").style.color = "skyblue";
+    }
+
+    function copyCode() {
+      const codeElement = document.querySelector("pre code");
+      const code = codeElement.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        // alert("Code copied to clipboard!");
+        document.getElementById("copybtn").value="Copied"
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Array Sort</h1>
+    <button onclick="arraySort()">Merge</button>
+    <input  type="button" id="copybtn" onclick="copyCode()" value="Copy Code" />
+    <p>Result</p>
+    <div id="answer"></div>
+    <h5>To Visualize: Copy code and test <a href="https://pythontutor.com/javascript.html#mode=edit" target="_black">Click Here</a></h5>
+    <h3>Code</h3>
+    <pre><code class="language-javascript">
+      let data = [40,30,12,25,54,96,5,8,1];
+
+      for(let i=0; i&lt;data.length;i++){
+        for(let j=0;j&lt;data.length;j++){
+          if(data[j]&gt;data[j+1]){
+            let temp=data[j];
+            data[j]=data[j+1];
+            data[j+1]=temp;
+          }
+        }
+      }
+      console.log(data)
+    </code></pre>
+  </div>
+</body>
+</html>
