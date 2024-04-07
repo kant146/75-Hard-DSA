@@ -7,86 +7,71 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
       margin: 0;
       padding: 0;
+      overflow: hidden;
     }
     .container {
-      max-width: 600px;
+      max-width: 400px;
+      /* height: 100dvh; */
+      position: absolute;
+      top: 0;
+      left: 80%;
+     
       margin: 50px auto;
       padding: 20px;
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    h1 {
+    h1, h2 {
       text-align: center;
       color: #333;
     }
-    h2 {
-      text-align: center;
-      color: #930000;
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      display:flex;
+      flex-wrap: wrap;
+      flex-direction: column;
     }
-    a{
+    .pagination a {
+      padding: 5px 10px;
+      margin: 5px 5px;
       text-decoration: none;
       color: #4caf50;
-      padding: 5px;
+      border: 1px solid #4caf50;
       border-radius: 5px;
-      background-color: #e9e9e9;
     }
-    label {
-      font-weight: bold;
-      margin-bottom: 10px;
-      display: block;
-    }
-    input[type="text"] {
-      width: calc(100% - 20px);
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button, #copybtn {
+    .pagination a:hover {
       background-color: #4caf50;
       color: #fff;
-      padding: 10px 20px;
+    }
+    iframe {
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-bottom: 10px;
+      width: 100%;
+      height: 100vh; 
+      padding-bottom: 2rem;
     }
-    button:hover , #copybtn:hover {
-      background-color: rgb(46, 55, 47);
-    }
-    #answer {
-      font-size: 18px;
-      color: #333;
-      margin-top: 20px;
-    }
-    pre {
-      background-color: #f7f7f7;
-      padding: 20px;
-      border-radius: 4px;
-      overflow-x: auto;
-    }
-   
-
   </style>
 </head>
 <body>
   <div class="container">
-
- 
-  <h2>DSA </h2>
-
-  <p> <a href="./01_array_traversing.html">Array Traversing Day 1</a></p>
-  <p> <a href="./02_array_Insert.html">Array Insert Day 2</a></p>
-  <p> <a href="./03_array_delete.html">Array Delete Day 3</a></p>
-  <p> <a href="./04_array_Search.html">Array Search  Day 4</a></p>
-  <p> <a href="./05_merge_two_array.html"> Merge Two Array Day 5 </a></p>
-  <p> <a href="./06_merge_two_array_in_while_loop.html">Merge Two Array in While loop Day 6</a> </p>
-
-</div>
-  
+    <h2>DSA</h2>
+    <div class="pagination">
+      <a href="./01_array_traversing.html" target="content">Array Traversing</a>
+      <a href="./02_array_Insert.html" target="content">Array Insert</a>
+      <a href="./03_array_delete.html" target="content">Array Delete</a>
+      <a href="./04_array_Search.html" target="content">Array Search</a>
+      <a href="./05_merge_two_array.html" target="content">Merge Two Array</a>
+      <a href="./06_merge_two_array_in_while_loop.html" target="content">Merge Two Array in While loop</a>
+      <a href="./07_array_sort.html" target="content">Array Sort</a>
+      <a href="./08_recursion.html" target="content">Recursion</a>
+      <a href="./09_recursion_type.html" target="content">Recursion Type</a>
+    </div>
+   
+  </div>
+  <iframe name="content" src="./01_array_traversing.html"></iframe>
 </body>
 </html>

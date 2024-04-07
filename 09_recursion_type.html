@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Array Sort</title>
+    <title>Recursion</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
@@ -35,7 +35,7 @@
         margin-bottom: 10px;
         display: block;
       }
-      input[type='text'] {
+      input[type='number'] {
         width: calc(100% - 20px);
         padding: 10px;
         margin-bottom: 20px;
@@ -69,39 +69,31 @@
       }
     </style>
     <script>
-      // let data = [40,30,12,25,54,96,5,8,1];
-
-      //   for(let i=0; i<data.length;i++){
-      //     for(let j=0;j<data.length;j++){
-      //       console.log(data)
-
-      //       if(data[j]>data[j+1]){
-      //         let temp=data[j];
-      //         data[j]=data[j+1];
-      //         data[j+1]=temp;
-      //       }
-      //     }
+      
+      // function apple(x){
+      //   console.log(x);
+      //   if(x<10){
+      //     apple(x+1);
       //   }
+      // }
+      // let data = 0;
+      // apple(data);
+    
 
-      // console.log(data)
-
-      function arraySort() {
-        let data = [40, 30, 12, 25, 54, 96, 5, 8, 1];
-
-        for (let i = 0; i < data.length; i++) {
-          for (let j = 0; j < data.length; j++) {
-            console.log(data);
-
-            if (data[j] > data[j + 1]) {
-              let temp = data[j];
-              data[j] = data[j + 1];
-              data[j + 1] = temp;
-            }
-          }
+      function recursion() {
+        
+        function factorial(item){
+        
+        if(item==0){
+          return 1;
         }
-        // console.log(data)
+       
+        return  item*factorial(item-1)
+      }
+      let data = document.getElementById("number").value;
+      console.log(factorial(data));
 
-        document.getElementById('answer').innerText = `${data}`;
+        document.getElementById('answer').innerText = `Factorial of ${data} is ${factorial(data)}`;
         document.getElementById('answer').style.color = 'skyblue';
       }
 
@@ -123,8 +115,10 @@
 
   <body>
     <div class="container">
-      <h1>Array Sort</h1>
-      <button onclick="arraySort()">Merge</button>
+      <h1>Recursion</h1>
+      <h3>Get Factorial</h3>
+      <input type="number" id="number" placeholder="Factorial of a Number" />
+      <button onclick="recursion()">Get Factorial</button>
       <input
         type="button"
         id="copybtn"
@@ -143,18 +137,16 @@
       </h5>
       <h3>Code</h3>
       <pre><code class="language-javascript">
-      let data = [40,30,12,25,54,96,5,8,1];
-
-      for(let i=0; i&lt;data.length;i++){
-        for(let j=0;j&lt;data.length;j++){
-          if(data[j]&gt;data[j+1]){
-            let temp=data[j];
-            data[j]=data[j+1];
-            data[j+1]=temp;
+        function factorial(item){
+        
+          if(item==0){
+            return 1;
           }
+         
+          return  item*factorial(item-1)
         }
-      }
-      console.log(data)
+        let data = 5;
+        console.log(factorial(data));
     </code></pre>
     </div>
 
