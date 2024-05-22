@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stack Operations</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      h3 {
+        text-align: center;
+        color: #333;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+      }
+      input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button,
+      #copybtn {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+      button:hover,
+      #copybtn:hover {
+        background-color: rgb(46, 55, 47);
+      }
+      #answer {
+        font-size: 18px;
+        color: #333;
+        margin-top: 20px;
+      }
+      .stack-box {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        margin: 10px 0;
+        background-color: #f9f9f9;
+        text-align: center;
+        font-weight: bold;
+        color: #4caf50;
+      }
+      .stack-container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        min-height: 150px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        padding: 10px;
+        background-color: #fff;
+      }
+      pre {
+        background-color: #f7f7f7;
+        padding: 20px;
+        border-radius: 4px;
+        overflow-x: auto;
+      }
+    </style>
+    <script>
+      let data = [];
+      let currentSize = data.length;
+      const max = 5;
+
+      function push() {
+        let newVal = document.getElementById('number').value;
+        if(newVal==""){
+          alert("pushing null value")
+        }else{
+          if (currentSize >= max) {
+          alert("Stack is full, you cannot add " + newVal);
+          return;
+        }
+        data[currentSize] = newVal;
+        currentSize += 1;
+        displayStack();
+        }
+       
+      }
+
+      function pop() {
+        if (currentSize > 0) {
+          currentSize -= 1;
+          data.length = currentSize;
+        } else {
+          alert("Stack is already empty");
+        }
+        displayStack();
+      }
+
+      function displayStack() {
+        let stackContainer = document.getElementById('stack-container');
+        stackContainer.innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
+          let stackBox = document.createElement('div');
+          stackBox.className = 'stack-box';
+          stackBox.innerText = data[i];
+          stackContainer.appendChild(stackBox);
+        }
+      }
+
+      function copyCode() {
+        const codeElement = document.querySelector('pre code');
+        const code = codeElement.innerText;
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            document.getElementById('copybtn').value = 'Copied';
+          })
+          .catch((err) => {
+            console.error('Failed to copy: ', err);
+          });
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Stack</h1>
+      <input type="number" id="number" required placeholder="Add number to stack" />
+      <button onclick="push()">Push</button>
+      <button onclick="pop()">Pop</button>
+      <input
+        type="button"
+        id="copybtn"
+        onclick="copyCode()"
+        value="Copy Code"
+      />
+      <p>Result</p>
+      <div id="stack-container" class="stack-container"></div>
+      <h5>
+        To Visualize: Copy code and test
+        <a
+          href="https://pythontutor.com/javascript.html#mode=edit"
+          target="_blank"
+          >Click Here</a
+        >
+      </h5>
+      <h3>Code</h3>
+      <pre><code class="language-javascript">
+        let data = [];
+        let currentSize = data.length;
+        const max = 5;
+  
+        function push(newVal) {
+          if (currentSize >= max) {
+            console.log("Stack is full, you cannot add " + newVal);
+            return;
+          }
+          data[currentSize] = newVal;
+          currentSize += 1;
+        }
+  
+        function pop() {
+          if (currentSize > 0) {
+            currentSize -= 1;
+            data.length = currentSize;
+          } else {
+            console.log("Stack is already empty");
+          }
+        }
+
+        push(1)
+        push(2)
+        push(3)
+        pop()
+        push(4)
+        pop()
+        pop()
+        pop()
+        pop()
+    </code></pre>
+    </div>
+  </body>
+</html>

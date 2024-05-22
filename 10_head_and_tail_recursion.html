@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Recursion</title>
+    <title>In-Direct Recursion</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
@@ -69,33 +69,38 @@
       }
     </style>
     <script>
-      
-      // function apple(x){
-      //   console.log(x);
-      //   if(x<10){
-      //     apple(x+1);
+      //1
+
+      function colors(){
+        let data =20;
+        console.log(data)
+      }
+      function days(){
+        colors()
+      }
+
+      function fruit()
+      {
+        days()
+      }
+
+       function topFunction()
+       {
+        fruit()
+       }
+       topFunction();
+
+     
+      // 2
+
+      // function test(x){
+      //   //console.log(x)
+      //   if(x>0){
+      //     test(x-1)
       //   }
+      //   console.log(x)
       // }
-      // let data = 0;
-      // apple(data);
-    
-
-      function recursion() {
-        
-        function factorial(item){
-        
-        if(item==0){
-          return 1;
-        }
-       
-        return  item*factorial(item-1)
-      }
-      let data = document.getElementById("number").value;
-      console.log(factorial(data));
-
-        document.getElementById('answer').innerHTML += `Factorial of ${data} is ${factorial(data)} <br>`;
-        document.getElementById('answer').style.color = 'skyblue';
-      }
+      // test(5);
 
       function copyCode() {
         const codeElement = document.querySelector('pre code');
@@ -115,18 +120,14 @@
 
   <body>
     <div class="container">
-      <h1>Recursion</h1>
-      <h3>Get Factorial</h3>
-      <input type="number" id="number" placeholder="Factorial of a Number" />
-      <button onclick="recursion()">Get Factorial</button>
+      <h1>Head and Tail Recursion</h1>
       <input
         type="button"
         id="copybtn"
         onclick="copyCode()"
         value="Copy Code"
       />
-      <p>Result</p>
-      <div id="answer"></div>
+      <H5>Use Debuger</H5>
       <h5>
         To Visualize: Copy code and test
         <a
@@ -135,20 +136,29 @@
           >Click Here</a
         >
       </h5>
+     
       <h3>Code</h3>
       <pre><code class="language-javascript">
-        function factorial(item){
-        
-          if(item==0){
-            return 1;
-          }
-         
-          return  item*factorial(item-1)
-        }
-        let data = 5;
-        console.log(factorial(data));
+       
+      function colors(){
+        let data =20;
+        console.log(data)
+      }
+      function days(){
+        colors()
+      }
+
+      function fruit()
+      {
+        days()
+      }
+
+       function topFunction()
+       {
+        fruit()
+       }
+       topFunction();
     </code></pre>
     </div>
-
   </body>
 </html>

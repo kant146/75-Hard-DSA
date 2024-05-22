@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Recursion</title>
+    <title>Array Reverse with Recursion</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
@@ -69,31 +69,42 @@
       }
     </style>
     <script>
-      
-      // function apple(x){
-      //   console.log(x);
-      //   if(x<10){
-      //     apple(x+1);
+
+      let data = [77,66,55,44,33,22,11,0];
+      let temp;
+
+      // function customReverse(data,start,end){
+      //   console.log(data)
+      //   if(start <= end){
+      //     temp = data[start];
+      //     data[start] = data[end];
+      //     data[end]=temp;
+      //     customReverse(data,start + 1, end - 1);
       //   }
+      //   document.getElementById('answer').innerText = `Reverse data is ${data}`;
       // }
-      // let data = 0;
-      // apple(data);
-    
 
-      function recursion() {
-        
-        function factorial(item){
-        
-        if(item==0){
-          return 1;
+      // customReverse(data,0,data.length-1);
+      
+      function getReverse() {
+        let data = [77,66,55,44,33,22,11,0];
+        let temp;
+
+        function customReverse(data,start,end){
+        console.log(data)
+        if(start <= end){
+          temp = data[start];
+          data[start] = data[end];
+          data[end]=temp;
+          customReverse(data,start + 1, end - 1);
         }
-       
-        return  item*factorial(item-1)
+        
       }
-      let data = document.getElementById("number").value;
-      console.log(factorial(data));
 
-        document.getElementById('answer').innerHTML += `Factorial of ${data} is ${factorial(data)} <br>`;
+      customReverse(data,0,data.length-1);
+      
+
+        document.getElementById('answer').innerText = `Reverse data is ${data}`;
         document.getElementById('answer').style.color = 'skyblue';
       }
 
@@ -115,10 +126,10 @@
 
   <body>
     <div class="container">
-      <h1>Recursion</h1>
-      <h3>Get Factorial</h3>
-      <input type="number" id="number" placeholder="Factorial of a Number" />
-      <button onclick="recursion()">Get Factorial</button>
+      <h1>Array Reverse with Recursion</h1>
+      <h3>Reverse</h3>
+      <h3>data = [77,66,55,44,33,22,11,0]</h3>
+      <button onclick="getReverse()">Reverse</button>
       <input
         type="button"
         id="copybtn"
@@ -127,6 +138,7 @@
       />
       <p>Result</p>
       <div id="answer"></div>
+      <h4 >Also use data.reverse()</h4>
       <h5>
         To Visualize: Copy code and test
         <a
@@ -137,18 +149,22 @@
       </h5>
       <h3>Code</h3>
       <pre><code class="language-javascript">
-        function factorial(item){
-        
-          if(item==0){
-            return 1;
-          }
-         
-          return  item*factorial(item-1)
+        let data = [77,66,55,44,33,22,11,0];
+        let temp;
+
+        function customReverse(data,start,end){
+        console.log(data)
+        if(start &lt;= end){
+          temp = data[start];
+          data[start] = data[end];
+          data[end]=temp;
+          customReverse(data,start + 1, end - 1);
         }
-        let data = 5;
-        console.log(factorial(data));
+        
+      }
+
+      customReverse(data,0,data.length-1);
     </code></pre>
     </div>
-
   </body>
 </html>

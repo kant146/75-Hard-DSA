@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Recursion</title>
+    <title>In-Direct Recursion</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
@@ -67,34 +67,55 @@
         border-radius: 4px;
         overflow-x: auto;
       }
-    
     </style>
     <script>
-      
-      // function apple(x){
-      //   console.log(x);
-      //   if(x<10){
-      //     apple(x+1);
+      //   let money = 100;
+      //   let totalApple = 0;
+
+      //   function buyApple(x){
+
+      //     if(x>0){
+      //      console.log("I have",x,"RS",totalApple)
+      //      buyMore(x);
+      //     }else{
+      //       console.log("I don't have more money",totalApple);
+      //     }
+
       //   }
-      // }
-      // let data = 0;
-      // apple(data);
-    
 
-      function recursion() {
-        
-        function factorial(item){
-        
-        if(item==0){
-          return 1;
+      //  function buyMore(x){
+      //   totalApple++
+      //   buyApple(x-20)
+      //  }
+
+      //  buyApple(money);
+
+      function getApple() {
+        let money = document.getElementById('money').value;
+        let totalApple = 0;
+        let applePrice = document.getElementById('applePrice').value;
+
+        function buyApple(x) {
+          if (x > 0) {
+            document.getElementById(
+              'answer'
+            ).innerHTML += `I have ₹${x},  ${totalApple} apples, <br>`;
+            buyMore(x);
+          } else {
+            document.getElementById(
+              'answer'
+            ).innerHTML += `I don't have more money ${totalApple} apples. <br>`;
+          }
         }
-       
-        return  item*factorial(item-1)
-      }
-      let data = document.getElementById("number").value;
-      console.log(factorial(data));
 
-        document.getElementById('answer').innerText = `Factorial of ${data} is ${factorial(data)}`;
+        function buyMore(x) {
+          totalApple++;
+          buyApple(x - applePrice);
+        }
+
+        buyApple(money);
+
+        // document.getElementById('answer').innerText = `Factorial of ${data} is ${factorial(data)}`;
         document.getElementById('answer').style.color = 'skyblue';
       }
 
@@ -116,10 +137,11 @@
 
   <body>
     <div class="container">
-      <h1>Recursion</h1>
-      <h3>Get Factorial</h3>
-      <input type="number" id="number" placeholder="Factorial of a Number" />
-      <button onclick="recursion()">Get Factorial</button>
+      <h1>In-Direct Recursion</h1>
+      <h3>Get Apple</h3>
+      <input type="number" id="money" placeholder="Money" />
+      <input type="number" id="applePrice" placeholder="Apple Price" />
+      <button onclick="getApple()">Get Apple</button>
       <input
         type="button"
         id="copybtn"
@@ -138,18 +160,15 @@
       </h5>
       <h3>Code</h3>
       <pre><code class="language-javascript">
-        function factorial(item){
-        
+         function factorial(item){
           if(item==0){
             return 1;
           }
-         
           return  item*factorial(item-1)
         }
         let data = 5;
         console.log(factorial(data));
     </code></pre>
     </div>
-
   </body>
 </html>
